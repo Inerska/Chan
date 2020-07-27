@@ -1,3 +1,4 @@
+import discord
 from discord.ext import commands
 
 
@@ -8,7 +9,8 @@ class Ping(commands.Cog):
 
     @commands.command(name='ping')
     async def ping(self, ctx):
-        await ctx.send(f"Pong {int(self.bot.latency * 1000)} ms !")
+        await ctx.send(embed=discord.Embed(color=0x2F3136,
+                                           description=f"Chan's ping is `{int(self.bot.latency * 1000)} ms` !"))
 
 
 def setup(bot):

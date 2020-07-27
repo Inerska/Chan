@@ -16,3 +16,8 @@ def load_cogs(_client, subdir):
             _client.load_extension(f'cogs.{subdir}.{_cog}') if _cog != '__init__' else ...
         except Exception as e:
             print(e)
+
+
+# Return an empty character
+def empty_char() -> str:
+    return '⠀'
