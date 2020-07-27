@@ -10,7 +10,7 @@ class Chan(commands.Bot):
     async def on_ready(self):
         get_token_from_json()
         load_cogs(self, subdir='commands')
-        print("Logged as", self.user)
+        print(f"Logged as {self.user}, active in {len(self.guilds)} servers with a total amount of {len([user for user in self.users if not user.bot])} user(s).")
 
 
 if __name__ == '__main__':
