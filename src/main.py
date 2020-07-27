@@ -1,20 +1,18 @@
-import discord
-import json
+from discord.ext import commands
+from src.utils import get_token_from_json, load_cogs
 
 
-# Retrieving discord bot token with opening the env json file
-def get_token_from_json():
-    with open('env.json', 'r+') as os:
-        data = json.load(os)
-    return data["TOKEN"]
+class Chan(commands.Bot):
 
-
-class Chan(discord.Client):
+    def __init__(self, prefix):
+        super().__init__(command_prefix=prefix)
 
     async def on_ready(self):
         get_token_from_json()
+        load_cogs(self, subdir='commands')
         print("Logged as", self.user)
 
 
-client = Chan()
-client.run(get_token_from_json())
+if __name__ == '__main__':
+    client = Chan(prefix='/')
+    client.run(get_token_from_json())
