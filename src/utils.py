@@ -10,8 +10,9 @@ def get_key_from_json(key: str):
 
 
 # Loading all python cogs files
-def load_cogs(_client, subdir):
+def load_cogs(_client, subdir: str):
     for _cog in [file.split(".")[0] for file in os.listdir(f'cogs/{subdir}') if file.endswith('.py')]:
+        subdir = subdir.replace('/', '.')
         try:
             _client.load_extension(f'cogs.{subdir}.{_cog}') if _cog != '__init__' else ...
         except Exception as e:
