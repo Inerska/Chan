@@ -1,5 +1,5 @@
 from discord.ext import commands
-from src.utils import get_token_from_json, load_cogs
+from src.utils import get_key_from_json, load_cogs
 
 
 class Chan(commands.Bot):
@@ -8,11 +8,10 @@ class Chan(commands.Bot):
         super().__init__(command_prefix=prefix)
 
     async def on_ready(self):
-        get_token_from_json()
         load_cogs(self, subdir='commands')
-        print(f"Logged as {self.user}, active in {len(self.guilds)} servers with a total amount of {len([user for user in self.users if not user.bot])} user(s).")
+        print(f"Logged as {self.user}, active in {len(self.guilds)} server(s) with a total amount of {len([user for user in self.users if not user.bot])} user(s).")
 
 
 if __name__ == '__main__':
     client = Chan(prefix='%')
-    client.run(get_token_from_json())
+    client.run(get_key_from_json("TOKEN"))

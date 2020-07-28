@@ -3,10 +3,10 @@ import os
 
 
 # Retrieving discord bot token with opening the env json file
-def get_token_from_json():
+def get_key_from_json(key: str):
     with open('env.json', 'r+') as file:
         data = json.load(file)
-    return data["TOKEN"]
+    return data[key]
 
 
 # Loading all python cogs files
