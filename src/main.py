@@ -8,8 +8,8 @@ class Chan(commands.Bot):
         super().__init__(command_prefix=prefix)
 
     async def on_ready(self):
-        load_cogs(self, subdir='commands')
-        load_cogs(self, subdir='commands/social')
+        load_cogs(self, subdir='commands')              # Loading all commands
+        load_cogs(self, subdir='commands/social')       # Loading all social commands
         print(f"Logged as {self.user}, active in {len(self.guilds)} server(s) with a total amount of {len([user for user in self.users if not user.bot])} user(s).")
 
 
