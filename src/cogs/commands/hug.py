@@ -20,10 +20,11 @@ class Hug(commands.Cog):
                                    color=0x2F3136)
                        .set_image(url=f"{await get_random_gif_by_theme('anime hug')}"))
 
+    @staticmethod
     @hug.error
-    async def hug_error(self, ctx, target):
+    async def hug_error(ctx, error):
         await ctx.message.delete()
-        if isinstance(target, MissingRequiredArgument):
+        if isinstance(error, MissingRequiredArgument):
             await ctx.send("Please specify someone to hug on, it would be so sad otherwise ! 😢", delete_after=5.0)
 
 
