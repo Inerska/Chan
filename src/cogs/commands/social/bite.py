@@ -16,7 +16,7 @@ class Bite(commands.Cog):
     @commands.command(name='bite')
     async def bite(self, ctx, target: User):
         await ctx.message.delete()
-        await ctx.send(embed=Embed(description=f"༼ つ ◕o◕ ༽つ **{ctx.author.name}** bites **{target.name}**",
+        await ctx.send(embed=Embed(description=f"(⚈₋₍⚈) **{ctx.author.name}** bites **{target.name}**",
                                    color=0x2F3136)
                        .set_image(url=f"{await get_random_gif_by_theme('anime bite')}"))
 
