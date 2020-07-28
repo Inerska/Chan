@@ -16,9 +16,11 @@ class Bite(commands.Cog):
     @commands.command(name='bite')
     async def bite(self, ctx, target: User):
         await ctx.message.delete()
-        await ctx.send(embed=Embed(description=f"(⚈₋₍⚈) **{ctx.author.name}** bites **{target.name}**",
-                                   color=0x2F3136)
-                       .set_image(url=f"{await get_random_gif_by_theme('anime bite')}"))
+        if ctx.message.author != target:
+            await ctx.send(embed=Embed(description=f"(⚈₋₍⚈) **{ctx.author.name}** bites **{target.name}**",
+                                       color=0x2F3136)
+                           .set_image(url=f"{await get_random_gif_by_theme('anime bite')}"))
+        else: await ctx.send("You really want to bite yourself-.. ? It's not a problem, but..", delete_after=5.0)
 
     @bite.error
     async def hug_error(self, ctx, error):

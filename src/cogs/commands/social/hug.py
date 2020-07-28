@@ -16,9 +16,11 @@ class Hug(commands.Cog):
     @commands.command(name='hug')
     async def hug(self, ctx, target: User):
         await ctx.message.delete()
-        await ctx.send(embed=Embed(description=f"༼ つ ◕o◕ ༽つ **{ctx.author.name}** hugs **{target.name}**",
-                                   color=0x2F3136)
-                       .set_image(url=f"{await get_random_gif_by_theme('anime hug')}"))
+        if ctx.message.author != target:
+            await ctx.send(embed=Embed(description=f"༼ つ ◕o◕ ༽つ **{ctx.author.name}** hugs **{target.name}**",
+                                       color=0x2F3136)
+                           .set_image(url=f"{await get_random_gif_by_theme('anime hug')}"))
+        else: await ctx.send("You really want to hug yourself-.. ?", delete_after=5.0)
 
     @hug.error
     async def hug_error(self, ctx, error):
