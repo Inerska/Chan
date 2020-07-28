@@ -1,6 +1,3 @@
-from discord import User
-from discord.ext.commands import MissingRequiredArgument, BadArgument
-
 from discord import Embed
 from discord.ext import commands
 
