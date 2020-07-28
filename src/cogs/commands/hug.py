@@ -1,4 +1,4 @@
-from discord import message
+from discord import message, User
 from discord.ext.commands import MissingRequiredArgument
 
 from discord import Embed
@@ -13,7 +13,7 @@ class Hug(commands.Cog):
         self.bot = bot
 
     @commands.command(name='hug')
-    async def hug(self, ctx, target):
+    async def hug(self, ctx, target: User):
         await ctx.message.delete()
         await ctx.send(embed=Embed(description=f"༼ つ ◕o◕ ༽つ **{ctx.author.name}** hugs **{target.name}**",
                                    color=0x2F3136)
