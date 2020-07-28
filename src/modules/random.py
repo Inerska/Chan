@@ -8,6 +8,6 @@ from src.utils import get_key_from_json, fetch
 async def get_random_gif_by_theme(theme: str):
     async with aiohttp.ClientSession() as session:
         response = await fetch(session,
-                               f"http://api.giphy.com/v1/gifs/search?q={theme.replace(' ', '+')}&api_key={get_key_from_json('GIPHY_API_KEY')}&limit=10&sort=revelant&rating=g")
+                               f"https://api.tenor.com/v1/random?q={theme.replace(' ', '+')}&contentfilter=medium")
         await session.close()
-        return response["data"][random.randint(0, 9)]["images"]["downsized"]["url"]
+        return response["results"][random.randint(0, 19)]["media"][0]["gif"]["url"]
