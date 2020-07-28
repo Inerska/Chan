@@ -21,3 +21,9 @@ def load_cogs(_client, subdir):
 # Return an empty character
 def empty_char() -> str:
     return '⠀'
+
+
+# Fetching data from url
+async def fetch(session, url):
+    async with session.get(url) as response:
+        return await response.json()
