@@ -21,6 +21,7 @@ class Hug(commands.Cog):
 
     @hug.error
     async def hug_error(self, ctx, target):
+        await ctx.message.delete()
         if isinstance(target, MissingRequiredArgument):
             await ctx.send("Please specify someone to hug on, it would be so sad otherwise ! 😢", delete_after=5.0)
 
