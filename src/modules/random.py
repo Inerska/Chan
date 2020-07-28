@@ -1,7 +1,8 @@
 import random
+
 import aiohttp
 
-from src.utils import get_key_from_json, fetch
+from src.utils import fetch
 
 
 # Retrieving gifs by theme query from Giphy API
