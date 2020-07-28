@@ -14,5 +14,5 @@ class Chan(commands.Bot):
 
 
 if __name__ == '__main__':
-    client = Chan(prefix='/')
+    client = Chan(prefix='%')
     client.run(get_token_from_json())
