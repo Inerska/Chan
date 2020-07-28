@@ -8,7 +8,7 @@ class Ping(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.command(name='ping')
+    @commands.command(name='ping', aliases=['ms', 'latency', 'lag'])
     async def ping(self, ctx):
         await ctx.message.delete()
         await ctx.send(embed=discord.Embed(color=0x2F3136,
