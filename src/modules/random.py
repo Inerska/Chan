@@ -20,3 +20,12 @@ async def get_random_meme_pic():
                                "https://some-random-api.ml/meme")
         await session.close()
         return response["image"]
+
+
+# Retrieving joke text from icanhazdadjoke API
+async def get_random_joke_text():
+    async with aiohttp.ClientSession() as session:
+        response = await fetch(session,
+                               "https://official-joke-api.appspot.com/random_joke")
+        await session.close()
+        return response["setup"], response["punchline"]
