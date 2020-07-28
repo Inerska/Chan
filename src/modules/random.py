@@ -22,7 +22,7 @@ async def get_random_meme_pic():
         return response["image"]
 
 
-# Retrieving joke text from icanhazdadjoke API
+# Retrieving joke text from Official Joke API by 15Dkatz
 async def get_random_joke_text():
     async with aiohttp.ClientSession() as session:
         response = await fetch(session,
