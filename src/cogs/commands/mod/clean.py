@@ -17,7 +17,7 @@ class Clean(commands.Cog):
         await ctx.channel.purge(limit=interval)
         await ctx.send(embed=Embed(description=f"I have cleared {interval} messages... I can see my reflection now",
                                    color=0x2F3136)
-                       .set_image(url=f"{await get_random_gif_by_theme('anime wash')}"))
+                       .set_image(url=f"{await get_random_gif_by_theme('anime wash')}"), delete_after=8.0)
 
     @clean.error
     async def clean_error(self, ctx, error):
