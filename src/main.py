@@ -15,4 +15,6 @@ class Chan(commands.Bot):
 
 if __name__ == '__main__':
     client = Chan(prefix='%')
+    # Middleware
+    client.remove_command('help')
     client.run(get_key_from_json("TOKEN"))
