@@ -1,5 +1,3 @@
-from dataclasses import dataclass
-
 from discord.ext.commands import MissingRequiredArgument, BadArgument
 from discord.ext import commands
 
