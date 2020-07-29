@@ -16,7 +16,7 @@ class Clean(commands.Cog):
     async def clean(self, ctx, interval: int):
         await ctx.message.delete()
         await ctx.channel.purge(limit=interval)
-        print(f"LOG » {self.bot.get_guild(ctx.message.guild.id).name} | {ctx.author.name} has cleared the chat | {date.today()}")
+        print(f"[log] {self.bot.get_guild(ctx.message.guild.id).name} | {ctx.author.name} has cleared the chat | {date.today()}")
         await ctx.send(embed=Embed(description=f"I have cleared {interval} messages... I can see my reflection now",
                                    color=0x2F3136)
                        .set_image(url=f"{await get_random_gif_by_theme('anime wash')}"), delete_after=8.0)
