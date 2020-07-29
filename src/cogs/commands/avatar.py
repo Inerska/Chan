@@ -16,7 +16,7 @@ class Avatar(commands.Cog):
     async def avatar(self, ctx, target: User):
         await ctx.message.delete()
         if ctx.message.author != target:
-            await ctx.send(f"{ctx.message.author.mention}, that's the avatar of **{target.name}**\n{ctx.message.author.avatar_url_as(size=4096)}")
+            await ctx.send(f"{ctx.message.author.mention}, that's the avatar of **{target.name}**\n{target.avatar_url_as(size=4096)}")
         else: await ctx.send(f"{ctx.message.author.mention}, that's your avatar !\n{ctx.message.author.avatar_url_as(size=4096)}")
 
     @avatar.error
