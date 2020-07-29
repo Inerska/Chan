@@ -10,7 +10,7 @@ class Pikachu(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.command(name='pikuachu', aliases=['pika'])
+    @commands.command(name='pikachu', aliases=['pika'])
     async def pikachu(self, ctx):
         await ctx.message.delete()
         await ctx.send(embed=Embed(description="⊹　 ✺ * ·　Pika~ Pika~..",
