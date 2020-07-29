@@ -12,7 +12,7 @@ class Avatar(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.command(name='avatar')
+    @commands.command(name='avatar', aliases=['pp'])
     async def avatar(self, ctx, target: User):
         await ctx.message.delete()
         if ctx.message.author != target:
