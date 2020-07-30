@@ -13,7 +13,7 @@ class Ban(commands.Cog):
         self.bot = bot
 
     @commands.command(name='ban')
-    @commands.has_permissions(kick_members=True)
+    @commands.has_permissions(ban_members=True)
     async def ban(self, ctx, target: Member, *, reason: str = "N/A"):
         await ctx.message.delete()
         if target.guild_permissions.administrator:

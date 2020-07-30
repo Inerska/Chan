@@ -14,7 +14,7 @@ class Unban(commands.Cog):
 
     # Example : %unban Ergazia#7586
     @commands.command(name='unban', aliases=['pardon', 'forgive', 'deban'])
-    @commands.has_permissions(kick_members=True)
+    @commands.has_permissions(ban_members=True)
     async def unban(self, ctx, *, target):
         ban_list = await ctx.guild.bans()
         member_name, member_id = target.split('#')
