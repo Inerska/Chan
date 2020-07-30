@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 
-from discord.ext.commands import MissingRequiredArgument, BadArgument
+from discord.ext.commands import MissingRequiredArgument, BadArgument, CommandOnCooldown
 import aiohttp
 from src.utils import fetch
 from discord import Embed
@@ -29,6 +29,7 @@ class Urban(commands.Cog):
         self.bot = bot
 
     @commands.command(name='urban')
+    @commands.cooldown(1, 3)
     async def urban(self, ctx, term: str):
         await ctx.message.delete()
         terms_mean = await search_meaning_of(term, 0)
@@ -47,6 +48,8 @@ class Urban(commands.Cog):
             await ctx.send("Please specify a term to find the meaning of", delete_after=5.0)
         elif isinstance(error, BadArgument):
             await ctx.send("Erm~, sorry- I can't find that term...", delete_after=5.0)
+        elif isinstance(error, CommandOnCooldown):
+            await ctx.send("You're typing so fast, wait a moment...", delete_after=5.0)
 
 
 def setup(bot):
