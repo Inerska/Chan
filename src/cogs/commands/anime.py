@@ -48,7 +48,7 @@ class Anime(commands.Cog):
         await safe_delete(ctx)
         query = await get_anime_info_by_name(term)
         if query:
-            await ctx.send(embed=Embed(color=0x2F3136, title=f"Anime Informations for {query.Title} - {query.Type}", description=f"ᕙ(⇀‸↼‵‵)ᕗ **{ctx.author.mention}** I've find your anime !")
+            await ctx.send(embed=Embed(color=0x2F3136, title=f"Anime Informations for {query.Title} - {query.Type}", description=f"ᕙ(⇀‸↼‵‵)ᕗ **{ctx.author.mention}** I've found out your anime !")
                            .set_thumbnail(url=query.Image_URL)
                            .add_field(name="**Information**", value=f"MAL Score: **{query.Score}**\nEpisodes: **{query.Episodes}**\nAiring: **{'Yes' if query.Airing else 'No'}**")
                            .add_field(name=f"**Synopsis**", value=f"{query.Synopsis}\n[See it on MAL]({query.URL})"))
