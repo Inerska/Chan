@@ -1,5 +1,6 @@
 import json
 import os
+from datetime import date
 
 
 # Retrieving discord bot token with opening the env json file
@@ -28,3 +29,11 @@ def empty_char() -> str:
 async def fetch(session, url):
     async with session.get(url) as response:
         return await response.json()
+
+
+# Deleting user command message, preventing Permission error
+async def safe_delete(ctx):
+    try:
+        await ctx.message.delete()
+    except Exception as e:
+        pass

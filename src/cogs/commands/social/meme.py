@@ -6,6 +6,9 @@ from random import choice
 
 
 # Add some spicy in our lives
+from src.utils import safe_delete
+
+
 class Meme(commands.Cog):
 
     def __init__(self, bot):
@@ -13,7 +16,7 @@ class Meme(commands.Cog):
 
     @commands.command(name='meme')
     async def meme(self, ctx):
-        await ctx.message.delete()
+        await safe_delete(ctx)
         meme = choice([True, False])
         await ctx.send(embed=Embed(description="⊹　 ✺ * ·　",
                                    color=0x2F3136)

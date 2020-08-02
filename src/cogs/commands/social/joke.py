@@ -5,6 +5,9 @@ from src.modules.random import get_random_joke_text
 
 
 # Add some spicy in our lives
+from src.utils import safe_delete
+
+
 class Joke(commands.Cog):
 
     def __init__(self, bot):
@@ -12,7 +15,7 @@ class Joke(commands.Cog):
 
     @commands.command(name='joke')
     async def joke(self, ctx):
-        await ctx.message.delete()
+        await safe_delete(ctx)
         q, a = await get_random_joke_text()
         await ctx.send(embed=Embed(title="⊹　 ✺ * ·　",
                                    color=0x2F3136,

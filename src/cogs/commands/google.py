@@ -3,6 +3,9 @@ from discord.ext import commands
 
 
 # More knowledge
+from src.utils import safe_delete
+
+
 class Google(commands.Cog):
 
     def __init__(self, bot):
@@ -10,12 +13,12 @@ class Google(commands.Cog):
 
     @commands.command(name='google', aliases=['lgsfy', 'googleit', 'gi', 'lmgt', 'lmgtfy'])
     async def google(self, ctx, *, term: str):
-        await ctx.message.delete()
+        await safe_delete(ctx)
         await ctx.send(f"https://lmgtfy.com/?q={term.replace(' ', '+')}")
 
     @google.error
     async def google_error(self, ctx, error):
-        await ctx.message.delete()
+        await safe_delete(ctx)
         if isinstance(error, MissingRequiredArgument):
             await ctx.send("Please specify a term to google it", delete_after=5.0)
         elif isinstance(error, BadArgument):

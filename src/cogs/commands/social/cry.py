@@ -5,6 +5,9 @@ from src.modules.random import get_random_gif_by_theme
 
 
 # Yeah, that's sad...
+from src.utils import safe_delete
+
+
 class Cry(commands.Cog):
 
     def __init__(self, bot):
@@ -12,7 +15,7 @@ class Cry(commands.Cog):
 
     @commands.command(name='cry')
     async def cry(self, ctx):
-        await ctx.message.delete()
+        await safe_delete(ctx)
         await ctx.send(embed=Embed(description=f"｡:ﾟ(;´∩`;)ﾟ:｡ **{ctx.author.name}** cries...",
                                    color=0x2F3136)
                        .set_image(url=f"{await get_random_gif_by_theme('anime cry')}"))

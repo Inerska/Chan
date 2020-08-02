@@ -6,6 +6,9 @@ from src.modules.random import get_random_gif_by_theme
 
 
 # Sometimes we need some love
+from src.utils import safe_delete
+
+
 class Love(commands.Cog):
     sentence = ["Put your head on my shoulder..~",
                 "Sending virtual hug... (%hug @me)",
@@ -32,7 +35,7 @@ class Love(commands.Cog):
 
     @commands.command(name='love')
     async def love(self, ctx):
-        await ctx.message.delete()
+        await safe_delete(ctx)
         await ctx.send(embed=Embed(color=0x2F3136,
                                    description=f"{ctx.message.author.mention}, {self.sentence[randint(0, len(self.sentence))]} 💞"))
 

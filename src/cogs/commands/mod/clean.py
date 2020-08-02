@@ -6,6 +6,9 @@ from datetime import date
 
 
 # Clean the chat as your floor
+from src.utils import safe_delete
+
+
 class Clean(commands.Cog):
 
     def __init__(self, bot):
@@ -15,7 +18,7 @@ class Clean(commands.Cog):
     @commands.has_permissions(manage_messages=True)
     async def clean(self, ctx, interval: int):
         if interval <= 200:
-            await ctx.message.delete()
+            await safe_delete(ctx)
             await ctx.channel.purge(limit=interval)
             print(f"[log] {self.bot.get_guild(ctx.message.guild.id).name} | {ctx.author.name} has cleared the chat | {date.today()}")
             await ctx.send(embed=Embed(description=f"I have cleared {interval} messages... I can see my reflection now",
@@ -25,7 +28,7 @@ class Clean(commands.Cog):
 
     @clean.error
     async def clean_error(self, ctx, error):
-        await ctx.message.delete()
+        await safe_delete(ctx)
         if isinstance(error, MissingRequiredArgument):
             await ctx.send("Please specify an interval of messages !", delete_after=5.0)
         elif isinstance(error, BadArgument):

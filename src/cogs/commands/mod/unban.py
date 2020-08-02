@@ -1,7 +1,7 @@
 from discord.ext.commands import MissingRequiredArgument, BadArgument, MissingPermissions, BotMissingPermissions
 from discord.ext import commands
 from src.modules.random import get_random_gif_by_theme
-from src.utils import empty_char
+from src.utils import empty_char, safe_delete
 from discord import Embed, Member
 from datetime import date
 
@@ -23,7 +23,7 @@ class Unban(commands.Cog):
             print(user.name)
             if (user.name, user.discriminator) == (member_name, member_id):
                 await ctx.guild.unban(user)
-                await ctx.message.delete()
+                await safe_delete(ctx)
                 print(f"[log] {self.bot.get_guild(ctx.message.guild.id).name} | {ctx.author.name} has unbanned {user.mention} | {date.today()}")
                 await ctx.send(embed=Embed(description=f"I have unbanned {user.mention} for you **{ctx.author.name}**, give me a cookie ! (%cookie Chan)",
                                            color=0x2F3136)
@@ -32,7 +32,7 @@ class Unban(commands.Cog):
 
     @unban.error
     async def unban_error(self, ctx, error):
-        await ctx.message.delete()
+        await safe_delete(ctx)
         if isinstance(error, MissingRequiredArgument) or isinstance(error, BadArgument):
             await ctx.send("Please specify someone to unban !", delete_after=5.0)
         elif isinstance(error, MissingPermissions) or isinstance(error, BotMissingPermissions):

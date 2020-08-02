@@ -1,7 +1,7 @@
 from discord.ext.commands import MissingRequiredArgument, BadArgument, MissingPermissions, BotMissingPermissions
 from discord.ext import commands
 from src.modules.random import get_random_gif_by_theme
-from src.utils import empty_char
+from src.utils import empty_char, safe_delete
 from discord import Embed, Member
 from datetime import date
 
@@ -15,7 +15,7 @@ class Kick(commands.Cog):
     @commands.command(name='kick')
     @commands.has_permissions(kick_members=True)
     async def kick(self, ctx, target: Member, *, reason: str = "N/A"):
-        await ctx.message.delete()
+        await safe_delete(ctx)
         if target.guild_permissions.administrator:
             await ctx.send("The target is an admin.", delete_after=5.0)
         else:
@@ -28,7 +28,7 @@ class Kick(commands.Cog):
 
     @kick.error
     async def kick_error(self, ctx, error):
-        await ctx.message.delete()
+        await safe_delete(ctx)
         if isinstance(error, MissingRequiredArgument) or isinstance(error, BadArgument):
             await ctx.send("Please specify someone to kick out !", delete_after=5.0)
         elif isinstance(error, MissingPermissions) or isinstance(error, BotMissingPermissions):

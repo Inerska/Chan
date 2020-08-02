@@ -8,6 +8,9 @@ from src.modules.random import get_random_gif_by_theme
 
 
 # Sometimes, a hug can be the solution
+from src.utils import safe_delete
+
+
 class Hug(commands.Cog):
 
     def __init__(self, bot):
@@ -15,7 +18,7 @@ class Hug(commands.Cog):
 
     @commands.command(name='hug')
     async def hug(self, ctx, target: User):
-        await ctx.message.delete()
+        await safe_delete(ctx)
         if ctx.message.author != target:
             await ctx.send(embed=Embed(description=f"༼ つ ◕o◕ ༽つ **{ctx.author.name}** hugs **{target.name}**",
                                        color=0x2F3136)
@@ -24,7 +27,7 @@ class Hug(commands.Cog):
 
     @hug.error
     async def hug_error(self, ctx, error):
-        await ctx.message.delete()
+        await safe_delete(ctx)
         if isinstance(error, MissingRequiredArgument):
             await ctx.send("Please specify someone to hug on, it would be so sad otherwise ! 😢", delete_after=5.0)
         elif isinstance(error, BadArgument):

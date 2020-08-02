@@ -2,7 +2,7 @@ from dataclasses import dataclass
 
 from discord.ext.commands import MissingRequiredArgument, BadArgument, CommandOnCooldown
 import aiohttp
-from src.utils import fetch
+from src.utils import fetch, safe_delete
 from discord import Embed
 from discord.ext import commands
 
@@ -31,7 +31,7 @@ class Urban(commands.Cog):
     @commands.command(name='urban')
     @commands.cooldown(1, 3)
     async def urban(self, ctx, term: str):
-        await ctx.message.delete()
+        await safe_delete(ctx)
         terms_mean = await search_meaning_of(term, 0)
         if terms_mean:
             await ctx.send(embed=Embed(description=f"（︶^︶）**{ctx.author.name}** that's the meaning of *{term}*",
@@ -43,7 +43,7 @@ class Urban(commands.Cog):
 
     @urban.error
     async def urban_error(self, ctx, error):
-        await ctx.message.delete()
+        await safe_delete(ctx)
         if isinstance(error, MissingRequiredArgument):
             await ctx.send("Please specify a term to find the meaning of", delete_after=5.0)
         elif isinstance(error, BadArgument):

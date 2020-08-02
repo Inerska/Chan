@@ -6,6 +6,9 @@ from src.modules.random import get_random_gif_by_theme
 
 
 # Drink a bowl of nostalgy!
+from src.utils import safe_delete
+
+
 class Undertale(commands.Cog):
 
     sentence = ["Despite everything, it's still you.",
@@ -33,7 +36,7 @@ class Undertale(commands.Cog):
 
     @commands.command(name='undertale')
     async def undertale(self, ctx):
-        await ctx.message.delete()
+        await safe_delete(ctx)
         await ctx.send(embed=Embed(description=f"(￣__￣) « {self.sentence[randint(0, len(self.sentence))]} »",
                                    color=0x2F3136)
                        .set_image(url=f"{await get_random_gif_by_theme('undertale')}"))

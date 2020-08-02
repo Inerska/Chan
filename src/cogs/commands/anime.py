@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 
 import aiohttp
-from src.utils import fetch
+from src.utils import fetch, safe_delete
 from discord.ext.commands import MissingRequiredArgument, BadArgument, CommandOnCooldown
 from discord.ext import commands
 from discord import Embed
@@ -45,7 +45,7 @@ class Anime(commands.Cog):
     @commands.command(name='anime', aliases=['animeinfo', 'ai', 'mal', 'myanimelist'])
     @commands.cooldown(1, 3)
     async def anime(self, ctx, *, term: str):
-        await ctx.message.delete()
+        await safe_delete(ctx)
         query = await get_anime_info_by_name(term)
         if query:
             await ctx.send(embed=Embed(color=0x2F3136, title=f"Anime Informations for {query.Title} - {query.Type}", description=f"ᕙ(⇀‸↼‵‵)ᕗ **{ctx.author.mention}** I've find your anime !")
@@ -56,7 +56,7 @@ class Anime(commands.Cog):
 
     @anime.error
     async def anime_error(self, ctx, error):
-        await ctx.message.delete()
+        await safe_delete(ctx)
         if isinstance(error, MissingRequiredArgument):
             await ctx.send("Please specify an anime name to search info for", delete_after=5.0)
         elif isinstance(error, BadArgument):
