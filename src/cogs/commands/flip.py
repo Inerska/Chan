@@ -9,7 +9,7 @@ class Flip(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.command(name='flip', aliases=['coinflip', 'headsortails'])
+    @commands.command(name='flip', aliases=['coinflip', 'headsortails', 'piece'])
     async def flip(self, ctx):
         await ctx.message.delete()
         await ctx.send(embed=discord.Embed(color=0x2F3136,
