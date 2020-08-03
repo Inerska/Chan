@@ -31,5 +31,7 @@ def check_server_json(bot_instance: commands.Bot):
                                    "private_channel_id": "N/A",
                                    "xp_system":         "False",
                                    "xp_channel_id":     "N/A",
+                                   "news":              "False",
+                                   "new_id":            "N/A",
                                    "lang":              "en"})
             print(f"[os] {guild.id}({guild.name}) config file has been created | {date.today()}")
