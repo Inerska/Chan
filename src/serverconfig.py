@@ -27,6 +27,8 @@ def check_server_json(bot_instance: commands.Bot):
                                    "role_join_id":      "N/A",
                                    "music_channel":     "False",
                                    "music_channel_id":  "N/A",
+                                   "private_channel":   "False",
+                                   "private_channel_id": "N/A",
                                    "xp_system":         "False",
                                    "xp_channel_id":     "N/A",
                                    "lang":              "en"})
