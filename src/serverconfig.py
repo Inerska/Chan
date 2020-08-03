@@ -1,5 +1,3 @@
-import os
-import json
 from datetime import date
 from discord.ext import commands
 from pymongo import MongoClient
