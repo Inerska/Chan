@@ -26,7 +26,7 @@ class Undertale(commands.Cog):
                 "NYEH HEH HEH HEH!",
                 "Don't kill and don't be killed, alright?",
                 "finally, I was so tired of being a flower",
-                "Oh wait, I just remembered... You don't have any friends.",
+                "Oh wait, I just remembered... You don't have any friends",
                 "That's the trash can, feel free to visit it anytime",
                 "YOU MADE YOUR CHOICE LONG AGO.",
                 "I don't want to let go"]
