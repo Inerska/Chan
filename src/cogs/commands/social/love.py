@@ -33,7 +33,7 @@ class Love(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.command(name='love')
+    @commands.command(name='love', aliases=['luv', 'amour'])
     async def love(self, ctx):
         await safe_delete(ctx)
         await ctx.send(embed=Embed(color=0x2F3136,
