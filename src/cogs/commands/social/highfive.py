@@ -23,7 +23,7 @@ class HighFive(commands.Cog):
             await ctx.send(embed=Embed(description=f"(._.)/(._. **{ctx.author.name}** highfives **{target.name}**",
                                        color=0x2F3136)
                            .set_image(url=f"{await get_random_gif_by_theme('anime highfive')}"))
-        else: await ctx.send("You really want to this alone-.. ?", delete_after=5.0)
+        else: await ctx.send("You really want to do this alone-.. ?", delete_after=5.0)
 
     @highfive.error
     async def highfive_error(self, ctx, error):
