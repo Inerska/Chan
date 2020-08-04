@@ -14,7 +14,7 @@ def is_guild_registered(guild_id) -> bool:
 
 
 # Checking if the server has it's json file
-def check_server_json(bot_instance: commands.Bot):
+def check_server_json(bot_instance: commands.Bot) -> None:
     for guild in bot_instance.guilds:
         if not is_guild_registered(guild.id):
             server_col.insert_one({"guild_id":          guild.id,
@@ -33,3 +33,8 @@ def check_server_json(bot_instance: commands.Bot):
                                    "new_id":            "N/A",
                                    "lang":              "en"})
             print(f"[os] - {date.today()} » {guild.id} ({guild.name}) config file has been created.")
+
+
+# Retrieving prefix thanks to the guild_id
+def get_prefix_from(guild_id) -> str:
+    return server_col.find_one({"guild_id": guild_id})["guild_prefix"]
