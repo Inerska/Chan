@@ -35,6 +35,6 @@ def check_server_json(bot_instance: commands.Bot) -> None:
             print(f"[os] - {date.today()} » {guild.id} ({guild.name}) config file has been created.")
 
 
-# Retrieving prefix thanks to the guild_id
-def get_prefix_from(guild_id) -> str:
-    return server_col.find_one({"guild_id": guild_id})["guild_prefix"]
+# Retrieving prefix per server
+def get_guild_prefix(_, message) -> str:
+    return server_col.find_one({"guild_id": message.guild.id})["guild_prefix"]
