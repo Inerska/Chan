@@ -16,7 +16,7 @@ class SetPrefix(commands.Cog):
         self.bot = bot
 
     @commands.command(name='setprefix', aliases=['defineprefix ', 'setpre ', 'sprefix ', 'spre'])
-    @commands.has_permissions(manage_messages=True)
+    @commands.has_permissions(administrator=True)
     async def setprefix(self, ctx, prefix: str):
         if 0 < len(prefix) < 10:
             await safe_delete(ctx)
