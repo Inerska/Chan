@@ -11,7 +11,7 @@ from src.utils import safe_delete
 
 class Love(commands.Cog):
     sentence = ["Put your head on my shoulder..~",
-                "Sending virtual hug... (%hug @me)",
+                "Sending virtual hug... (%hug Chan)",
                 "I want to taste your soul",
                 "It's gonna be okay, everything gonna be okay!",
                 "I'm here, don't be sad, things will be ok!",

@@ -12,6 +12,7 @@ class Chan(commands.Bot):
         check_server_json(self)  # Check if each servers where the bot is, have a json config file
         load_cogs(self, subdir='commands')  # Loading all commands
         load_cogs(self, subdir='commands/social')  # Loading all social commands
+        load_cogs(self, subdir='commands/utility')  # Loading very useful commands
         load_cogs(self, subdir='commands/mod')  # Loading all moderation commands
         load_cogs(self, subdir='commands/game_stats')  # Loading all game stats commands
         print(f"Logged as {self.user}, active in {len(self.guilds)} server(s) with a total amount of {len([user for user in self.users if not user.bot])} user(s).")
