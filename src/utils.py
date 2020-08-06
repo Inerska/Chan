@@ -1,5 +1,7 @@
+import io
 import json
 import os
+import re
 from datetime import date
 
 
@@ -25,10 +27,18 @@ def empty_char() -> str:
     return '⠀'
 
 
-# Fetching data from url
+# Fetching data from restful api
 async def fetch(session, url):
     async with session.get(url) as response:
         return await response.json()
+
+
+# Fetching media from restful api, returning a buffer
+async def fetch_media(session, url):
+    async with session.get(url) as response:
+        data = io.BytesIO(await response.read())
+        data.seek(0)
+        return data
 
 
 # Deleting user command message, preventing Permission error
