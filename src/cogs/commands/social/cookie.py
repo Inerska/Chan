@@ -19,7 +19,7 @@ class Cookie(commands.Cog):
     async def cookie(self, ctx, target: User):
         await safe_delete(ctx)
         if target == self.bot.user:
-            await ctx.send(f"Thankkks ! I love cookie ! I love you sooo muchhh ! (%luv)")
+            await ctx.send(f"Thankkks ! I love cookies ! I love you sooo muchhh ! (%luv)")
         elif ctx.message.author != target:
             await ctx.send(f"👉 👈 Hey {target.mention}, {ctx.message.author.mention} gave you a cookie ! 🍪")
         else: await ctx.send("Do not be egoist ! (Give me that cookie)", delete_after=5.0)
