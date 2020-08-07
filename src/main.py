@@ -1,7 +1,7 @@
 from discord.ext import commands
 from src.serverconfig import check_server_json, get_per_guild_prefix
 from src.utils import get_key_from_json, load_cogs
-from src.callbacks_depend import join_dispatcher
+from src.callbacks_depend import join_dispatcher, message_dispatcher
 
 
 class Chan(commands.Bot):
@@ -26,6 +26,12 @@ class Chan(commands.Bot):
     @commands.Cog.listener()
     async def on_member_join(self, member):
         await join_dispatcher.send_join_canvas(self, member)
+
+    @commands.Cog.listener()
+    async def on_message(self, message):
+        if str(self.user.id) in message.content:
+            await message_dispatcher.about_embed(self, message)
+        await client.process_commands(message)
 
 
 if __name__ == '__main__':
