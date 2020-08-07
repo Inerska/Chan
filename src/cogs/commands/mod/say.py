@@ -1,7 +1,5 @@
-import discord
 from discord.ext import commands
-from discord.ext.commands import MissingRequiredArgument, BadArgument
-from random import randint
+from discord.ext.commands import MissingRequiredArgument
 
 
 # Say something as admin

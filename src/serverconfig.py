@@ -4,7 +4,8 @@ from src.utils import get_key_from_json, strtobool
 from discord.ext import commands
 from pymongo import MongoClient
 
-client = MongoClient(f'mongodb+srv://{get_key_from_json("db_username")}:{get_key_from_json("db_password")}@root.zfrgv.gcp.mongodb.net/{get_key_from_json("db_name")}?retryWrites=true&w=majority')
+client = MongoClient(
+    f'mongodb+srv://{get_key_from_json("db_username")}:{get_key_from_json("db_password")}@root.zfrgv.gcp.mongodb.net/{get_key_from_json("db_name")}?retryWrites=true&w=majority')
 database = client["database_root"]
 server_col = database["collection_root"]
 
@@ -52,7 +53,7 @@ def set_per_guild_prefix(prefix: str, guild_id) -> None:
 
 # Retrieving bool join
 def is_guild_join_enabled(guild_id) -> bool:
-    return strtobool(server_col.find_one({"guild_id": guild_id})["join"])
+    return server_col.find_one({"guild_id": guild_id})["join"]
 
 
 # Retrieving join message
@@ -60,9 +61,14 @@ def get_join_message(guild_id) -> bool:
     return server_col.find_one({"guild_id": guild_id})["join_message"]
 
 
-# Retrieving join message
+# Retrieving join channel
 def get_join_channel(guild_id) -> bool:
     return server_col.find_one({"guild_id": guild_id})["join_channel_id"]
+
+
+# Set join channel
+def set_join_channel(guild_id, channel_id) -> None:
+    server_col.update_one({"guild_id": guild_id}, {"$set": {"join_channel_id": channel_id}})
 
 
 # Define bool join
