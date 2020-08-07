@@ -28,6 +28,7 @@ async def send_join_canvas(ctx, usr: Union[User, Member]):
         buffer_user_avatar = io.BytesIO(await user_avatar.read())
 
         avatar_img = Image.open(buffer_user_avatar)
+        avatar_img = avatar_img.resize((128, 128))
 
         circle_image = Image.new('L', (128, 128))
         circle_draw = ImageDraw.Draw(circle_image)
