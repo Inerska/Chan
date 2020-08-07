@@ -44,5 +44,5 @@ async def send_join_canvas(ctx, usr: Union[User, Member]):
 
         # Rendering
         buffer.seek(0)
-        msg = get_join_message(usr.guild.id) if not "N/A" else f"Welcome {usr.mention} to my server ! 🌌"
+        msg = get_join_message(usr.guild.id) if not "N/A" else f"Welcome to my server ! {usr.mention} 🌌"
         await ctx.get_channel(int(get_join_channel(usr.guild.id))).send(content=msg, file=File(buffer, 'welcomer.png'))
