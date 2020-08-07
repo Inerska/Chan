@@ -36,7 +36,7 @@ def check_server_json(bot_instance: commands.Bot) -> None:
 
 
 # Retrieving per guild prefix
-def get_guild_prefix(_, message) -> str:
+def get_per_guild_prefix(_, message) -> str:
     return server_col.find_one({"guild_id": message.guild.id})["guild_prefix"]
 
 

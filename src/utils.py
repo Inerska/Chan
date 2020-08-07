@@ -1,7 +1,12 @@
+from distutils import util
 import io
 import json
 import os
 import re
+from typing import Union
+
+import aiohttp
+from discord import User, Member
 from datetime import date
 
 
@@ -36,9 +41,17 @@ async def fetch(session, url):
 # Fetching media from restful api, returning a buffer
 async def fetch_media(session, url):
     async with session.get(url) as response:
-        data = io.BytesIO(await response.read())
-        data.seek(0)
-        return data
+        return io.BytesIO(await response.read())
+
+
+# Retrieving buffer data from argument's avatar
+# async def get_buffer_avatar_from(user: Union[User, Member], size=128) -> bytes:
+#     avatar_url = str(user.avatar_url_as(format='png', size=size))
+#     async with aiohttp.ClientSession() as session:
+#         async with session.get(avatar_url) as response:
+#             avatar_buff = await response.read()
+#         await session.close()
+#         return avatar_buff
 
 
 # Deleting user command message, preventing Permission error
@@ -47,3 +60,8 @@ async def safe_delete(ctx):
         await ctx.message.delete()
     except Exception as e:
         pass
+
+
+# Converting string to bool type
+def strtobool(string: str) -> bool:
+    return bool(util.strtobool(string))
