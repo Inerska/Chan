@@ -10,7 +10,8 @@ async def about_embed(bot_instance: commands.Bot, ctx):
                                                    f"My prefix here is `{get_per_guild_prefix(_=None, message=ctx)}`, I'm owned by <@!228830814878564352>, you know, he is a kind master ! He gives me cookie everytiiime ! You know, you can do it too !\nIf you want more help about me, please check the help command !\n"
                                                    f"\n"
                                                    f"I'm also Open-Source please check my [GitHub Repertory <:git:741425389666173010> ](https://github.com/Inerska/Chan)\n"
-                                                   f"If you need help, please join the [Assistance Server 💮](https://discord.gg/wbMXek6)"
+                                                   f"If you need help, please join the [Assistance Server 💮](https://discord.gg/wbMXek6)\n"
+                                                   f"If you want to add me in your server, click [here 🔗](https://discord.com/api/oauth2/authorize?client_id=737356053951545386&permissions=8&scope=bot)"
                                                    f"\n"
                                                    f"\n"
                                                    f"Servers count: {len(bot_instance.guilds)}", timestamp=datetime.now(), colour=0x2F3136)
