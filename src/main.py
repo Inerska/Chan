@@ -29,6 +29,11 @@ class Chan(commands.Bot):
 
     @commands.Cog.listener()
     async def on_message(self, message):
+        if "discord.gg" in message.content:
+            try:
+                await message.delete()
+            except Exception as e:
+                pass
         if str(self.user.id) in message.content:
             await message_dispatcher.about_embed(self, message)
         await client.process_commands(message)
