@@ -1,10 +1,10 @@
 from datetime import date
+from typing import Tuple
+from src.utils import get_key_from_json, strtobool
 from discord.ext import commands
 from pymongo import MongoClient
-from src.utils import get_key_from_json
 
-client = MongoClient(
-    f'mongodb+srv://{get_key_from_json("db_username")}:{get_key_from_json("db_password")}@root.zfrgv.gcp.mongodb.net/{get_key_from_json("db_name")}?retryWrites=true&w=majority')
+client = MongoClient(f'mongodb+srv://{get_key_from_json("db_username")}:{get_key_from_json("db_password")}@root.zfrgv.gcp.mongodb.net/{get_key_from_json("db_name")}?retryWrites=true&w=majority')
 database = client["database_root"]
 server_col = database["collection_root"]
 
@@ -29,6 +29,11 @@ def check_server_json(bot_instance: commands.Bot) -> None:
                                    "private_channel_id": "N/A",
                                    "xp_system": "False",
                                    "xp_channel_id": "N/A",
+                                   "join": "False",
+                                   "join_channel_id": "N/A",
+                                   "join_message": "N/A",
+                                   "join_image_url": "N/A",
+                                   "quit_image_url": "N/A",
                                    "news": "False",
                                    "new_id": "N/A",
                                    "lang": "en"})
@@ -43,3 +48,23 @@ def get_per_guild_prefix(_, message) -> str:
 # Define a new per guild prefix
 def set_per_guild_prefix(prefix: str, guild_id) -> None:
     server_col.update_one({"guild_id": guild_id}, {"$set": {"guild_prefix": prefix}})
+
+
+# Retrieving bool join
+def is_guild_join_enabled(guild_id) -> bool:
+    return strtobool(server_col.find_one({"guild_id": guild_id})["join"])
+
+
+# Retrieving join message
+def get_join_message(guild_id) -> bool:
+    return server_col.find_one({"guild_id": guild_id})["join_message"]
+
+
+# Retrieving join message
+def get_join_channel(guild_id) -> bool:
+    return server_col.find_one({"guild_id": guild_id})["join_channel_id"]
+
+
+# Define bool join
+def set_guild_join(guild_id, value: bool) -> None:
+    server_col.update_one({"guild_id": guild_id}, {"$set": {"join": value}})

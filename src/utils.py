@@ -2,12 +2,6 @@ from distutils import util
 import io
 import json
 import os
-import re
-from typing import Union
-
-import aiohttp
-from discord import User, Member
-from datetime import date
 
 
 # Retrieving discord bot token with opening the env json file
