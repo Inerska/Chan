@@ -23,7 +23,7 @@ class Lick(commands.Cog):
             await ctx.send(embed=Embed(description=f"(ˆڡˆ) **{ctx.author.name}** is licking **{target.name}**",
                                        color=0x2F3136)
                            .set_image(url=f"{await get_random_gif_by_theme('anime lick')}"))
-        else: await ctx.send("You really want to cuddle yourself-.. ?", delete_after=5.0)
+        else: await ctx.send("You really want to lick.. yourself-.. ?", delete_after=5.0)
 
     @lick.error
     async def lick_error(self, ctx, error):
