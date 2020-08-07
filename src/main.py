@@ -1,3 +1,4 @@
+from discord import Status, Game
 from discord.ext import commands
 from src.serverconfig import check_server_json, get_per_guild_prefix
 from src.utils import get_key_from_json, load_cogs
@@ -11,6 +12,7 @@ class Chan(commands.Bot):
 
     @commands.Cog.listener()
     async def on_ready(self):
+        await self.change_presence(status=Status.idle, activity=Game(f"{len(self.guilds)} servers"))
         check_server_json(self)                         # Check if each servers where the bot is, have a json config file
         load_cogs(self, subdir='commands')              # Loading all commands
         load_cogs(self, subdir='commands/social')       # Loading all social commands
