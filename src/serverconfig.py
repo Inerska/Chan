@@ -1,11 +1,11 @@
+import ssl
 from datetime import date
 from typing import Tuple
 from src.utils import get_key_from_json, strtobool
 from discord.ext import commands
 from pymongo import MongoClient
 
-client = MongoClient(
-    f'mongodb+srv://{get_key_from_json("db_username")}:{get_key_from_json("db_password")}@root.zfrgv.gcp.mongodb.net/{get_key_from_json("db_name")}?retryWrites=true&w=majority')
+client = MongoClient(f'mongodb+srv://{get_key_from_json("db_username")}:{get_key_from_json("db_password")}@root.zfrgv.gcp.mongodb.net/{get_key_from_json("db_name")}?retryWrites=true&w=majority', ssl_cert_reqs=ssl.CERT_NONE)
 database = client["database_root"]
 server_col = database["collection_root"]
 
