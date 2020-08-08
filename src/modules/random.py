@@ -11,7 +11,7 @@ async def get_random_gif_by_theme(theme: str):
         response = await fetch(session,
                                f"https://api.tenor.com/v1/random?q={theme.replace(' ', '+')}&contentfilter=medium")
         await session.close()
-        return response["results"][random.randint(0, len(response["results"])-1)]["media"][0]["gif"]["url"]
+        return response["results"][random.randint(0, len(response["results"]) - 1)]["media"][0]["gif"]["url"]
 
 
 # Retrieving meme picture from Some-Random-API
@@ -30,6 +30,15 @@ async def get_random_joke_text():
                                "https://official-joke-api.appspot.com/random_joke")
         await session.close()
         return response["setup"], response["punchline"]
+
+
+# Retrieving anime quote
+async def get_random_anime_quote():
+    async with aiohttp.ClientSession() as session:
+        response = await fetch(session,
+                               "https://anime-chan.herokuapp.com/api/quotes/random")
+        await session.close()
+        return response[0]["quote"], response[0]["character"], response[0]["anime"]
 
 
 # Retrieving image from API
