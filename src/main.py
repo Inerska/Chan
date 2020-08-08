@@ -1,7 +1,7 @@
 from discord import Status, Game
 from discord.ext import commands
 from src.serverconfig import check_server_json, get_per_guild_prefix
-from src.utils import get_key_from_json, load_cogs
+from src.utils import get_key_from_json, load_cogs, safe_delete
 from src.callbacks_depend import join_dispatcher, message_dispatcher
 
 
@@ -32,10 +32,7 @@ class Chan(commands.Bot):
     @commands.Cog.listener()
     async def on_message(self, message):
         if "discord.gg" in message.content:
-            try:
-                await message.delete()
-            except Exception as e:
-                pass
+            await safe_delete(message)
         if str(self.user.id) in message.content:
             await message_dispatcher.about_embed(self, message)
         await client.process_commands(message)
