@@ -43,5 +43,5 @@ class Chan(commands.Bot):
 if __name__ == '__main__':
     client = Chan(prefix=get_per_guild_prefix)
     # Middleware
-    client.remove_command('help')
+    # client.remove_command('help')
     client.run(get_key_from_json("TOKEN"))
