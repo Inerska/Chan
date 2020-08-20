@@ -1,10 +1,10 @@
 import discord
 from discord.ext import commands
-from src.callbacks_depend import message_dispatcher
+from callbacks_depend import message_dispatcher
 
 
 # Who am I ?
-from src.utils import safe_delete
+from utils import safe_delete
 
 
 class Me(commands.Cog):

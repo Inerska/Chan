@@ -3,11 +3,11 @@ from discord.ext.commands import MissingRequiredArgument, BadArgument
 
 from discord.ext import commands
 
-from src.modules.random import get_random_gif_by_theme
+from modules.random import get_random_gif_by_theme
 
 
 # Give a cookie, eat a cookie, cookie forever <3
-from src.utils import safe_delete
+from utils import safe_delete
 
 
 class Cookie(commands.Cog):

@@ -6,7 +6,7 @@ from datetime import date
 
 
 # Clean the chat as your floor
-from src.utils import safe_delete
+from utils import safe_delete
 
 
 class Clean(commands.Cog):

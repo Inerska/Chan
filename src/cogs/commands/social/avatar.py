@@ -3,11 +3,11 @@ from discord.ext.commands import BadArgument, MissingRequiredArgument
 
 from discord.ext import commands
 
-from src.modules.random import get_random_gif_by_theme
+from modules.random import get_random_gif_by_theme
 
 
 # My avatar is beautifuler than yours, or maybe you just want to look at another one's avatar ?
-from src.utils import safe_delete
+from utils import safe_delete
 
 
 class Avatar(commands.Cog):

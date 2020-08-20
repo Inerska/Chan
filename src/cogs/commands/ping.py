@@ -3,7 +3,7 @@ from discord.ext import commands
 
 
 # Does Chan has latency ?
-from src.utils import safe_delete
+from utils import safe_delete
 
 
 class Ping(commands.Cog):

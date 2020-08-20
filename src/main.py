@@ -2,9 +2,9 @@ import datetime
 
 from discord import Status, Game
 from discord.ext import commands
-from src.serverconfig import check_server_json, get_per_guild_prefix
-from src.utils import get_key_from_json, load_cogs, safe_delete
-from src.callbacks_depend import join_dispatcher, message_dispatcher
+from serverconfig import check_server_json, get_per_guild_prefix
+from utils import get_key_from_json, load_cogs, safe_delete
+from callbacks_depend import join_dispatcher, message_dispatcher
 
 
 class Chan(commands.Bot):
@@ -20,7 +20,7 @@ class Chan(commands.Bot):
         load_cogs(self, subdir='commands/social')       # Loading all social commands
         load_cogs(self, subdir='commands/utility')      # Loading very useful commands
         load_cogs(self, subdir='commands/mod')          # Loading all moderation commands
-        load_cogs(self, subdir='commands/game_stats')   # Loading all game stats commands
+        # load_cogs(self, subdir='commands/game_stats')   # Loading all game stats commands
         print(f"Logged as {self.user}, active in {len(self.guilds)} server(s) with a total amount of {len([user for user in self.users if not user.bot])} user(s). {datetime.datetime.today()}")
 
     @commands.Cog.listener()

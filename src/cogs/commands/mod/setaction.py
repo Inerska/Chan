@@ -1,6 +1,6 @@
 import discord
 from discord.ext import commands
-from src.callbacks_depend import message_dispatcher
+from callbacks_depend import message_dispatcher
 
 
 # Set where join and leave message will be

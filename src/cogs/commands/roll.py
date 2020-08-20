@@ -5,7 +5,7 @@ from random import randint
 
 
 # Please an odd number
-from src.utils import safe_delete
+from utils import safe_delete
 
 
 class Roll(commands.Cog):

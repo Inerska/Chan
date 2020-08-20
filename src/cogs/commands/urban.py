@@ -2,7 +2,7 @@ from dataclasses import dataclass
 
 from discord.ext.commands import MissingRequiredArgument, BadArgument, CommandOnCooldown
 import aiohttp
-from src.utils import fetch, safe_delete
+from utils import fetch, safe_delete
 from discord import Embed
 from discord.ext import commands
 

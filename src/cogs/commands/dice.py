@@ -4,7 +4,7 @@ from random import randint
 
 
 # Please 6
-from src.utils import safe_delete
+from utils import safe_delete
 
 
 class Dice(commands.Cog):

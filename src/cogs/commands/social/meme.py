@@ -1,12 +1,12 @@
 from discord import Embed
 from discord.ext import commands
 
-from src.modules.random import get_random_gif_by_theme, get_random_meme_pic
+from modules.random import get_random_gif_by_theme, get_random_meme_pic
 from random import choice
 
 
 # Add some spicy in our lives
-from src.utils import safe_delete
+from utils import safe_delete
 
 
 class Meme(commands.Cog):

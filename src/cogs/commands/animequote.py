@@ -1,12 +1,12 @@
 from discord import Embed
 from discord.ext import commands
 
-from src.modules.random import get_random_anime_quote
+from modules.random import get_random_anime_quote
 from random import choice
 
 
 # Wow... that was so motivating
-from src.utils import safe_delete
+from utils import safe_delete
 
 
 class AnimeQuote(commands.Cog):

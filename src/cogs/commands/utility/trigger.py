@@ -5,10 +5,10 @@ from discord.ext.commands import BadArgument, MissingRequiredArgument
 from discord.ext import commands
 from numpy import format_parser
 
-from src.utils import fetch_media
+from utils import fetch_media
 
 # Trigger.. bruhhh
-from src.utils import safe_delete
+from utils import safe_delete
 
 
 # Returning a triggered avatar

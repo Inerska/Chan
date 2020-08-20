@@ -1,7 +1,7 @@
 import ssl
 from datetime import date
 from typing import Tuple
-from src.utils import get_key_from_json, strtobool
+from utils import get_key_from_json, strtobool
 from discord.ext import commands
 from pymongo import MongoClient
 

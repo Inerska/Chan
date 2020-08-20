@@ -3,7 +3,7 @@ from discord.ext import commands
 
 
 # More knowledge
-from src.utils import safe_delete
+from utils import safe_delete
 
 
 class Google(commands.Cog):

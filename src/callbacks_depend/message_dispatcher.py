@@ -1,7 +1,7 @@
 from discord.ext import commands
 from discord import Embed
 from datetime import datetime
-from src.serverconfig import get_per_guild_prefix
+from serverconfig import get_per_guild_prefix
 
 
 async def about_embed(bot_instance: commands.Bot, ctx):

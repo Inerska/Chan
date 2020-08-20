@@ -1,7 +1,7 @@
 from discord.ext.commands import MissingRequiredArgument, BadArgument
 from discord.ext import commands
-from src.modules.random import get_random_gif_by_theme
-from src.serverconfig import set_per_guild_prefix
+from modules.random import get_random_gif_by_theme
+from serverconfig import set_per_guild_prefix
 from discord import Embed
 from datetime import date
 

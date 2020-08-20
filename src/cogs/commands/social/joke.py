@@ -1,11 +1,11 @@
 from discord import Embed
 from discord.ext import commands
 
-from src.modules.random import get_random_joke_text
+from modules.random import get_random_joke_text
 
 
 # Add some spicy in our lives
-from src.utils import safe_delete
+from utils import safe_delete
 
 
 class Joke(commands.Cog):

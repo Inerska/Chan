@@ -2,11 +2,11 @@ from random import randint
 from discord import Embed
 from discord.ext import commands
 
-from src.modules.random import get_random_gif_by_theme
+from modules.random import get_random_gif_by_theme
 
 
 # Drink a bowl of nostalgy!
-from src.utils import safe_delete
+from utils import safe_delete
 
 
 class Undertale(commands.Cog):

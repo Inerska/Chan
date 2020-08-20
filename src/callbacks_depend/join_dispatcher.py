@@ -2,7 +2,7 @@ from typing import Union
 
 from PIL import ImageFont, Image, ImageDraw
 from discord import User, Member, File
-from src.serverconfig import get_join_message, get_join_channel, is_guild_join_enabled
+from serverconfig import get_join_message, get_join_channel, is_guild_join_enabled
 import io
 
 

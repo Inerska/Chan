@@ -1,11 +1,11 @@
 from discord import Embed
 from discord.ext import commands
 
-from src.modules.random import get_link_from_API
+from modules.random import get_link_from_API
 
 
 # We need some pika pika in our lives
-from src.utils import safe_delete
+from utils import safe_delete
 
 
 class Pikachu(commands.Cog):

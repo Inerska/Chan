@@ -4,7 +4,7 @@ from random import choice
 
 
 # Heads or Tails !
-from src.utils import safe_delete
+from utils import safe_delete
 
 
 class Flip(commands.Cog):

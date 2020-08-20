@@ -1,7 +1,7 @@
 from discord.ext.commands import MissingRequiredArgument, BadArgument, MissingPermissions, BotMissingPermissions
 from discord.ext import commands
-from src.modules.random import get_random_gif_by_theme
-from src.utils import empty_char, safe_delete
+from modules.random import get_random_gif_by_theme
+from utils import empty_char, safe_delete
 from discord import Embed, Member
 from datetime import date
 
