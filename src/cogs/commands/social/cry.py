@@ -5,7 +5,7 @@ from modules.random import get_random_gif_by_theme
 
 
 # Yeah, that's sad...
-from src.utils import safe_delete
+from utils import safe_delete
 
 
 class Cry(commands.Cog):

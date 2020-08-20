@@ -4,8 +4,8 @@ from callbacks_depend import message_dispatcher
 
 
 # Set where join and leave message will be
-from src.utils import safe_delete
-from src.serverconfig import set_join_channel, set_guild_join
+from utils import safe_delete
+from serverconfig import set_join_channel, set_guild_join
 
 
 class SetChannelAction(commands.Cog):

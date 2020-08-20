@@ -2,7 +2,7 @@ import discord
 from discord.ext import commands
 
 # I need some help...
-from src.utils import safe_delete
+from utils import safe_delete
 
 
 class Help(commands.Cog):

@@ -3,7 +3,7 @@ from discord.ext.commands import MissingRequiredArgument
 
 
 # Say something as admin
-from src.utils import safe_delete
+from utils import safe_delete
 
 
 class Say(commands.Cog):

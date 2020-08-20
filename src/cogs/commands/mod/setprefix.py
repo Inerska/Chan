@@ -7,7 +7,7 @@ from datetime import date
 
 
 # Setting per-guild prefix
-from src.utils import safe_delete
+from utils import safe_delete
 
 
 class SetPrefix(commands.Cog):
